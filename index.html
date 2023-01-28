@@ -162,7 +162,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/01/28/1-Abstraction/" class="post-title-link" itemprop="url">1.Abstraction</a>
+            <a href="/2023/01/28/1-Abstraction/" class="post-title-link" itemprop="url">1.Introduction</a>
         </h2>
 
         <div class="post-meta">
@@ -173,7 +173,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2023-01-28 19:27:52 / Modified: 19:29:01" itemprop="dateCreated datePublished" datetime="2023-01-28T19:27:52+08:00">2023-01-28</time>
+              <time title="Created: 2023-01-28 19:27:52 / Modified: 21:30:14" itemprop="dateCreated datePublished" datetime="2023-01-28T19:27:52+08:00">2023-01-28</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -196,7 +196,32 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="1-Abstraction"><a href="#1-Abstraction" class="headerlink" title="1.Abstraction"></a>1.Abstraction</h1>
+          <p>This series will record steps about how to write a web-server like Java Netty providing basic network service.</p>
+<p>A modern network web-server usually use event-drive models to handle a variety of network connections, which is proved to be one of the most efficient and fastest ways.</p>
+<p>Among all web servers, I recommend <a target="_blank" rel="noopener" href="https://github.com/chenshuo/muduo">muduo</a> to read and comprehend, because it has a few codes but implement most web-server features. It also uses event-drive models.</p>
+<h1 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h1><p>moduo is a c++ library, so it’s advisable that you should be familiar with c++ programing language.<br>If you don’t handle it, I recommend the following three resources for you:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.amazon.com/Primer-5th-Stanley-B-Lippman/dp/0321714113">c++ primer</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.amazon.com/C-Programming-Language-4th/dp/0321563840">the c++ programming language</a></li>
+<li><a target="_blank" rel="noopener" href="http://cppreference.com/">c++ reference</a></li>
+</ul>
+<p>c++ is not easy to study comparing with other programming languages like python or javascript.<br>If you just decide to learn, it may take you more than two months to comprehend.</p>
+<p>In this series, we will use modern c++(c++11) to build web-server.<br>Modern c++ provides many useful features to help us control complicate developments, like share_ptr or std::move.<br>We will use these features to better control memory and speed up web-server’s reaction.</p>
+<p>Here is some modern c++ resources:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/changkun/modern-cpp-tutorial">Modern C++ Tutorial</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/cpp/cpp/welcome-back-to-cpp-modern-cpp?view=msvc-170">Welcome back to C++ - Modern C++</a></li>
+</ul>
+<h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><p>Linux is the most popular computer operation systems all over the world.<br>It offers io-multiplexing and socket programing, which are powerful tools for us to write network programing code.</p>
+<p>Because our web-server will use epoll, which is only supported by linux, so our web-server will only support linux operation system.</p>
+<p>I will only recommend you read linux manual pages when you get problems, because it’s clear to read and easy to get wanted answers.<br>You just need to type <code>man something</code> then you can read it.</p>
+<p>If you use other systems like mac os or windows, you can use <a target="_blank" rel="noopener" href="https://www.docker.com/">docker</a> to have a linux system.</p>
+<h1 id="Network"><a href="#Network" class="headerlink" title="Network"></a>Network</h1><p>Our web-server will concentrate on tcp connections, which are the most popular network connection types.<br>For example, when you click an ip address like <code>www.google.com</code>, your browser will use http protocol to send a http request, which is based on tcp protocol.</p>
+<p>Here is come network resources:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.amazon.com/Computer-Networking-Top-Down-Approach-7th/dp/0133594149">Computer Networking: A Top-Down Approach</a></li>
+</ul>
+
       
     </div>
 

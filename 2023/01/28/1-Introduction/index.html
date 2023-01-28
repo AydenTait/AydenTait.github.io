@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"aydentait.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="This series will record steps about how to write a web-server like Java Netty providing basic network service. A modern network web-server usually use event-drive models to handle a variety of network">
+  <meta name="description" content="This series will record steps about how to write a web server like Java Netty providing basic network service. A modern network web server usually uses event-driven models to handle a variety of netwo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="1.Introduction">
 <meta property="og:url" content="https://aydentait.github.io/2023/01/28/1-Introduction/index.html">
 <meta property="og:site_name" content="AydenTait-blog">
-<meta property="og:description" content="This series will record steps about how to write a web-server like Java Netty providing basic network service. A modern network web-server usually use event-drive models to handle a variety of network">
+<meta property="og:description" content="This series will record steps about how to write a web server like Java Netty providing basic network service. A modern network web server usually uses event-driven models to handle a variety of netwo">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-01-28T11:27:52.000Z">
-<meta property="article:modified_time" content="2023-01-28T13:30:14.175Z">
+<meta property="article:modified_time" content="2023-01-28T13:50:51.179Z">
 <meta property="article:author" content="AydenTait">
 <meta property="article:tag" content="webserver">
 <meta name="twitter:card" content="summary">
@@ -176,7 +176,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2023-01-28 19:27:52 / Modified: 21:30:14" itemprop="dateCreated datePublished" datetime="2023-01-28T19:27:52+08:00">2023-01-28</time>
+              <time title="Created: 2023-01-28 19:27:52 / Modified: 21:50:51" itemprop="dateCreated datePublished" datetime="2023-01-28T19:27:52+08:00">2023-01-28</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -199,28 +199,28 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>This series will record steps about how to write a web-server like Java Netty providing basic network service.</p>
-<p>A modern network web-server usually use event-drive models to handle a variety of network connections, which is proved to be one of the most efficient and fastest ways.</p>
-<p>Among all web servers, I recommend <a target="_blank" rel="noopener" href="https://github.com/chenshuo/muduo">muduo</a> to read and comprehend, because it has a few codes but implement most web-server features. It also uses event-drive models.</p>
-<h1 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h1><p>moduo is a c++ library, so it’s advisable that you should be familiar with c++ programing language.<br>If you don’t handle it, I recommend the following three resources for you:</p>
+        <p>This series will record steps about how to write a web server like Java Netty providing basic network service.</p>
+<p>A modern network web server usually uses event-driven models to handle a variety of network connections, which is proven to be one of the most efficient and fastest ways.</p>
+<p>Among all web servers, I recommend <a target="_blank" rel="noopener" href="https://github.com/chenshuo/muduo">muduo</a> to read and comprehend, because it has a few codes but implements most web server features. It also uses event-drive models.</p>
+<h1 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h1><p>moduo is a c++ library, so it’s advisable that you should be familiar with the c++ programming language.<br>If you don’t handle it, I recommend the following three resources for you:</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://www.amazon.com/Primer-5th-Stanley-B-Lippman/dp/0321714113">c++ primer</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.amazon.com/C-Programming-Language-4th/dp/0321563840">the c++ programming language</a></li>
 <li><a target="_blank" rel="noopener" href="http://cppreference.com/">c++ reference</a></li>
 </ul>
-<p>c++ is not easy to study comparing with other programming languages like python or javascript.<br>If you just decide to learn, it may take you more than two months to comprehend.</p>
-<p>In this series, we will use modern c++(c++11) to build web-server.<br>Modern c++ provides many useful features to help us control complicate developments, like share_ptr or std::move.<br>We will use these features to better control memory and speed up web-server’s reaction.</p>
-<p>Here is some modern c++ resources:</p>
+<p>c++ is not easy to study compared with other programming languages like python or javascript.<br>If you just decide to learn, it may take you more than two months to comprehend.</p>
+<p>In this series, we will use modern c++(c++11) to build the web server.<br>Modern c++ provides many useful features to help us control complicated developments, like share_ptr or std::move.<br>We will use these features to better control memory and speed up the web server’s reaction.</p>
+<p>Here are some modern c++ resources:</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/changkun/modern-cpp-tutorial">Modern C++ Tutorial</a></li>
 <li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/cpp/cpp/welcome-back-to-cpp-modern-cpp?view=msvc-170">Welcome back to C++ - Modern C++</a></li>
 </ul>
-<h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><p>Linux is the most popular computer operation systems all over the world.<br>It offers io-multiplexing and socket programing, which are powerful tools for us to write network programing code.</p>
-<p>Because our web-server will use epoll, which is only supported by linux, so our web-server will only support linux operation system.</p>
-<p>I will only recommend you read linux manual pages when you get problems, because it’s clear to read and easy to get wanted answers.<br>You just need to type <code>man something</code> then you can read it.</p>
-<p>If you use other systems like mac os or windows, you can use <a target="_blank" rel="noopener" href="https://www.docker.com/">docker</a> to have a linux system.</p>
-<h1 id="Network"><a href="#Network" class="headerlink" title="Network"></a>Network</h1><p>Our web-server will concentrate on tcp connections, which are the most popular network connection types.<br>For example, when you click an ip address like <code>www.google.com</code>, your browser will use http protocol to send a http request, which is based on tcp protocol.</p>
-<p>Here is come network resources:</p>
+<h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><p>Linux is the most popular computer operating system all over the world.<br>It offers io-multiplexing and socket programming, which are powerful tools for us to write network programming code.</p>
+<p>Because our web server will use <code>epoll</code>, which is only supported by Linux,  our web server will only support the Linux operating system.</p>
+<p>I will only recommend you read the Linux manual pages when you get problems because it’s clear to read and easy to get wanted answers.<br>You just need to type <code>man something</code> then you can read it.</p>
+<p>If you use other systems like mac os or windows, you can use <a target="_blank" rel="noopener" href="https://www.docker.com/">docker</a> to have a Linux system.</p>
+<h1 id="Network"><a href="#Network" class="headerlink" title="Network"></a>Network</h1><p>Our web server will concentrate on tcp connections, which are the most popular network connection types.<br>For example, when you click an ip address like <code>www.google.com</code>, your browser will use the http protocol to send a http request, which is based on tcp protocol.</p>
+<p>Here are some network resources:</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://www.amazon.com/Computer-Networking-Top-Down-Approach-7th/dp/0133594149">Computer Networking: A Top-Down Approach</a></li>
 </ul>
@@ -245,7 +245,10 @@
     <a href="/2023/01/28/hello-world/" rel="prev" title="Hello World">
       <i class="fa fa-chevron-left"></i> Hello World
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2023/01/28/2-Structure/" rel="next" title="2.Structure">
+      2.Structure <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -318,7 +321,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -328,7 +331,7 @@
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>

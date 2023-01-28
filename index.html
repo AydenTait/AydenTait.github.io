@@ -148,6 +148,120 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://aydentait.github.io/2023/01/28/3-Preparation-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="AydenTait">
+      <meta itemprop="description" content="a blog shares IT experiences">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AydenTait-blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/01/28/3-Preparation-1/" class="post-title-link" itemprop="url">3.Preparation</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-01-28 22:52:23" itemprop="dateCreated datePublished" datetime="2023-01-28T22:52:23+08:00">2023-01-28</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://aydentait.github.io/2023/01/28/3-Preparation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="AydenTait">
+      <meta itemprop="description" content="a blog shares IT experiences">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AydenTait-blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/01/28/3-Preparation/" class="post-title-link" itemprop="url">3.Preparation</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-01-28 22:50:25" itemprop="dateCreated datePublished" datetime="2023-01-28T22:50:25+08:00">2023-01-28</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://aydentait.github.io/2023/01/28/2-Structure/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -173,7 +287,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2023-01-28 21:33:57 / Modified: 22:45:37" itemprop="dateCreated datePublished" datetime="2023-01-28T21:33:57+08:00">2023-01-28</time>
+              <time title="Created: 2023-01-28 21:33:57 / Modified: 22:52:18" itemprop="dateCreated datePublished" datetime="2023-01-28T21:33:57+08:00">2023-01-28</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -199,7 +313,10 @@
           <p>Like many web servers, we will use reactors and thread pools to handle connections.<br>Reactors will run in loops recording coming events and their handlers.</p>
 <p>Events are socket events. They will be created when connections are built and transfer contents after establishment.<br>Handlers are a bunch of function callbacks bound to reactors. when some operations occur, the reactor will call the handler in the event loop to handle certain events.</p>
 <p>Thread pools will also be used in our event loop to handle many events at one time, which are consisted of many sub-reactors.<br>The main reactor creates some sub-reactors to handle different events and control them.<br>When an event comes, the main reactor will dispatch it into a sub-reactor, and the sub-reactor will work as the main reactor to handle events.<br>After finishing calling all handlers, the sub-reactor will report its state to the main reactor.<br>If the sub-reactor encounters exceptions, it will also report them to the main reactor to decide whether it can recover or just be killed.</p>
-<p>Here is the concise structure picture:<br><img src="/./2-Structure/20230128223336.png">  </p>
+<p>Here is the concise structure picture:</p>
+<!-- ![](./2-Structure/20230128223336.png)   -->
+
+
 
       
     </div>
@@ -373,7 +490,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

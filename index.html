@@ -287,7 +287,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2023-01-28 21:33:57 / Modified: 22:52:18" itemprop="dateCreated datePublished" datetime="2023-01-28T21:33:57+08:00">2023-01-28</time>
+              <time title="Created: 2023-01-28 21:33:57 / Modified: 22:54:27" itemprop="dateCreated datePublished" datetime="2023-01-28T21:33:57+08:00">2023-01-28</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -313,9 +313,8 @@
           <p>Like many web servers, we will use reactors and thread pools to handle connections.<br>Reactors will run in loops recording coming events and their handlers.</p>
 <p>Events are socket events. They will be created when connections are built and transfer contents after establishment.<br>Handlers are a bunch of function callbacks bound to reactors. when some operations occur, the reactor will call the handler in the event loop to handle certain events.</p>
 <p>Thread pools will also be used in our event loop to handle many events at one time, which are consisted of many sub-reactors.<br>The main reactor creates some sub-reactors to handle different events and control them.<br>When an event comes, the main reactor will dispatch it into a sub-reactor, and the sub-reactor will work as the main reactor to handle events.<br>After finishing calling all handlers, the sub-reactor will report its state to the main reactor.<br>If the sub-reactor encounters exceptions, it will also report them to the main reactor to decide whether it can recover or just be killed.</p>
-<p>Here is the concise structure picture:</p>
-<!-- ![](./2-Structure/20230128223336.png)   -->
-
+<p>Here is the concise structure picture:<br><img src="/2023/01/28/2-Structure/20230128223336.png">  </p>
+<!--  -->
 
 
       

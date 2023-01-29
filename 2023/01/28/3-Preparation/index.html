@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"aydentait.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="a blog shares IT experiences">
+  <meta name="description" content="I use Ubuntu22.04 to develop, so the following commands will only be tested on ubuntu22.04.You can find the specific command on web. GCC&#x2F;G++Gcc&#x2F;G++ is the default c&#x2F;c++ compiler in Linu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="3.Preparation">
 <meta property="og:url" content="https://aydentait.github.io/2023/01/28/3-Preparation/index.html">
 <meta property="og:site_name" content="AydenTait-blog">
-<meta property="og:description" content="a blog shares IT experiences">
+<meta property="og:description" content="I use Ubuntu22.04 to develop, so the following commands will only be tested on ubuntu22.04.You can find the specific command on web. GCC&#x2F;G++Gcc&#x2F;G++ is the default c&#x2F;c++ compiler in Linu">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-01-28T14:50:25.000Z">
-<meta property="article:modified_time" content="2023-01-28T14:50:25.483Z">
+<meta property="article:modified_time" content="2023-01-29T02:22:04.840Z">
 <meta property="article:author" content="AydenTait">
 <meta name="twitter:card" content="summary">
 
@@ -176,6 +176,13 @@
 
               <time title="Created: 2023-01-28 22:50:25" itemprop="dateCreated datePublished" datetime="2023-01-28T22:50:25+08:00">2023-01-28</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-01-29 10:22:04" itemprop="dateModified" datetime="2023-01-29T10:22:04+08:00">2023-01-29</time>
+              </span>
 
           
 
@@ -188,7 +195,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <p>I use Ubuntu22.04 to develop, so the following commands will only be tested on <code>ubuntu22.04</code>.You can find the specific command on web.</p>
+<h1 id="GCC-x2F-G"><a href="#GCC-x2F-G" class="headerlink" title="GCC&#x2F;G++"></a>GCC&#x2F;G++</h1><p>Gcc&#x2F;G++ is the default c&#x2F;c++ compiler in Linux.</p>
+<p>You can install them by <code>sudo apt-get install gcc g++</code></p>
+<h1 id="Cmake"><a href="#Cmake" class="headerlink" title="Cmake"></a>Cmake</h1><p>We will use cmake to manage the web server. Cmake is a cross system build tool, you can install it on your Linux system by following <a target="_blank" rel="noopener" href="https://cmake.org/install/">tuition</a>.</p>
+<p>I’m using Ubuntu22.04. I install cmake by <code>sudo apt-get install cmake</code>.</p>
+<h1 id="Create-Project"><a href="#Create-Project" class="headerlink" title="Create Project"></a>Create Project</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> Mozi <span class="comment"># this is my web server name</span></span><br><span class="line"><span class="built_in">cd</span> Mozi</span><br><span class="line">git init </span><br><span class="line"><span class="built_in">touch</span> readme.md CMakeLists.txt main.cpp</span><br><span class="line"></span><br><span class="line"><span class="built_in">mkdir</span> net util tests build</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">vim CMakeLists.txt <span class="comment"># edit cmake</span></span><br></pre></td></tr></table></figure>
+<p>CMakeList.txt</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CMAKE_MINIMUM_REQUIRED</span>(VERSION <span class="number">3.2</span>)</span><br><span class="line"><span class="keyword">project</span>(mozi)</span><br><span class="line"></span><br><span class="line"><span class="comment"># enable c++ 14</span></span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_STANDARD <span class="number">14</span>)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_STANDARD_REQUIRED <span class="keyword">True</span>)</span><br><span class="line"><span class="keyword">enable_testing</span>()</span><br><span class="line"><span class="keyword">add_subdirectory</span>(tests)</span><br><span class="line"></span><br><span class="line"><span class="keyword">add_executable</span>(mozi main.cpp)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>When you finish all steps, you can test them by</p>
+<p>main.cpp</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;iostream&quot;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    std::cout&lt;&lt;<span class="string">&quot;hello world&quot;</span>&lt;&lt;std::endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>shell</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">cmake ..</span><br></pre></td></tr></table></figure>
+
+
+
+
     </div>
 
     
@@ -268,6 +292,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#GCC-x2F-G"><span class="nav-number">1.</span> <span class="nav-text">GCC&#x2F;G++</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cmake"><span class="nav-number">2.</span> <span class="nav-text">Cmake</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Create-Project"><span class="nav-number">3.</span> <span class="nav-text">Create Project</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -281,7 +306,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

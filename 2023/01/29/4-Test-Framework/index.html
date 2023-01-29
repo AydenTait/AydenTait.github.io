@@ -20,30 +20,34 @@
     var CONFIG = {"hostname":"aydentait.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="a blog shares IT experiences">
-<meta property="og:type" content="website">
-<meta property="og:title" content="AydenTait-blog">
-<meta property="og:url" content="https://aydentait.github.io/index.html">
+  <meta name="description" content="Tests are of great importance in software development because tests can help us find out bugs we usually ignore and measure frameworks’ performance. Google Test Framework is a powerful c++ test framew">
+<meta property="og:type" content="article">
+<meta property="og:title" content="4. Test Framework">
+<meta property="og:url" content="https://aydentait.github.io/2023/01/29/4-Test-Framework/index.html">
 <meta property="og:site_name" content="AydenTait-blog">
-<meta property="og:description" content="a blog shares IT experiences">
+<meta property="og:description" content="Tests are of great importance in software development because tests can help us find out bugs we usually ignore and measure frameworks’ performance. Google Test Framework is a powerful c++ test framew">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-01-29T02:23:16.000Z">
+<meta property="article:modified_time" content="2023-01-29T04:13:41.579Z">
 <meta property="article:author" content="AydenTait">
+<meta property="article:tag" content="webserver">
+<meta property="article:tag" content="cpp">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://aydentait.github.io/">
+<link rel="canonical" href="https://aydentait.github.io/2023/01/29/4-Test-Framework/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>AydenTait-blog</title>
+  <title>4. Test Framework | AydenTait-blog</title>
   
 
 
@@ -142,9 +146,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
@@ -160,10 +165,9 @@
       <meta itemprop="name" content="AydenTait-blog">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/01/29/4-Test-Framework/" class="post-title-link" itemprop="url">4. Test Framework</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          4. Test Framework
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -196,7 +200,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Tests are of great importance in software development because tests can help us find out bugs we usually ignore and measure frameworks’ performance.</p>
+        <p>Tests are of great importance in software development because tests can help us find out bugs we usually ignore and measure frameworks’ performance.</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/google/googletest">Google Test Framework</a> is a powerful c++ test framework.<br>However, to better understand test frameworks working principle, we can write a simple test framework by ourselves.</p>
 <p>Let’s start.</p>
 <ol>
@@ -208,324 +212,34 @@ Here is the completed code:<figure class="highlight cpp"><table><tr><td class="g
 </ol>
 <p>You can use it in <code>main.cpp</code>:</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;tests/test.h&quot;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>** argv)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">addTest</span>(<span class="string">&quot;simpleTest1&quot;</span>,[]&#123;</span><br><span class="line">        <span class="built_in">EXPECT_EQ</span>(<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="built_in">addTest</span>(<span class="string">&quot;simpleTest2&quot;</span>,[]&#123;</span><br><span class="line">        <span class="built_in">EXPECT_EQ</span>(<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="built_in">runAllTest</span>();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/webserver/" rel="tag"># webserver</a>
+              <a href="/tags/cpp/" rel="tag"># cpp</a>
+          </div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://aydentait.github.io/2023/01/28/3-Preparation-1/">
+        
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="AydenTait">
-      <meta itemprop="description" content="a blog shares IT experiences">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="AydenTait-blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/01/28/3-Preparation-1/" class="post-title-link" itemprop="url">3.Preparation</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-01-28 22:52:23" itemprop="dateCreated datePublished" datetime="2023-01-28T22:52:23+08:00">2023-01-28</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/01/28/3-Preparation-1/" rel="prev" title="3.Preparation">
+      <i class="fa fa-chevron-left"></i> 3.Preparation
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://aydentait.github.io/2023/01/28/3-Preparation/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="AydenTait">
-      <meta itemprop="description" content="a blog shares IT experiences">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="AydenTait-blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/01/28/3-Preparation/" class="post-title-link" itemprop="url">3.Preparation</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-01-28 22:50:25" itemprop="dateCreated datePublished" datetime="2023-01-28T22:50:25+08:00">2023-01-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-01-29 10:22:04" itemprop="dateModified" datetime="2023-01-29T10:22:04+08:00">2023-01-29</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>I use Ubuntu22.04 to develop, so the following commands will only be tested on <code>ubuntu22.04</code>.You can find the specific command on web.</p>
-<h1 id="GCC-x2F-G"><a href="#GCC-x2F-G" class="headerlink" title="GCC&#x2F;G++"></a>GCC&#x2F;G++</h1><p>Gcc&#x2F;G++ is the default c&#x2F;c++ compiler in Linux.</p>
-<p>You can install them by <code>sudo apt-get install gcc g++</code></p>
-<h1 id="Cmake"><a href="#Cmake" class="headerlink" title="Cmake"></a>Cmake</h1><p>We will use cmake to manage the web server. Cmake is a cross system build tool, you can install it on your Linux system by following <a target="_blank" rel="noopener" href="https://cmake.org/install/">tuition</a>.</p>
-<p>I’m using Ubuntu22.04. I install cmake by <code>sudo apt-get install cmake</code>.</p>
-<h1 id="Create-Project"><a href="#Create-Project" class="headerlink" title="Create Project"></a>Create Project</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> Mozi <span class="comment"># this is my web server name</span></span><br><span class="line"><span class="built_in">cd</span> Mozi</span><br><span class="line">git init </span><br><span class="line"><span class="built_in">touch</span> readme.md CMakeLists.txt main.cpp</span><br><span class="line"></span><br><span class="line"><span class="built_in">mkdir</span> net util tests build</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">vim CMakeLists.txt <span class="comment"># edit cmake</span></span><br></pre></td></tr></table></figure>
-<p>CMakeList.txt</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CMAKE_MINIMUM_REQUIRED</span>(VERSION <span class="number">3.2</span>)</span><br><span class="line"><span class="keyword">project</span>(mozi)</span><br><span class="line"></span><br><span class="line"><span class="comment"># enable c++ 14</span></span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_STANDARD <span class="number">14</span>)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_STANDARD_REQUIRED <span class="keyword">True</span>)</span><br><span class="line"><span class="keyword">enable_testing</span>()</span><br><span class="line"><span class="keyword">add_subdirectory</span>(tests)</span><br><span class="line"></span><br><span class="line"><span class="keyword">add_executable</span>(mozi main.cpp)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>When you finish all steps, you can test them by</p>
-<p>main.cpp</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;iostream&quot;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    std::cout&lt;&lt;<span class="string">&quot;hello world&quot;</span>&lt;&lt;std::endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>shell</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">cmake ..</span><br></pre></td></tr></table></figure>
-
-
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://aydentait.github.io/2023/01/28/2-Structure/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="AydenTait">
-      <meta itemprop="description" content="a blog shares IT experiences">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="AydenTait-blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/01/28/2-Structure/" class="post-title-link" itemprop="url">2.Structure</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2023-01-28 21:33:57 / Modified: 22:54:27" itemprop="dateCreated datePublished" datetime="2023-01-28T21:33:57+08:00">2023-01-28</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/webserver/" itemprop="url" rel="index"><span itemprop="name">webserver</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Like many web servers, we will use reactors and thread pools to handle connections.<br>Reactors will run in loops recording coming events and their handlers.</p>
-<p>Events are socket events. They will be created when connections are built and transfer contents after establishment.<br>Handlers are a bunch of function callbacks bound to reactors. when some operations occur, the reactor will call the handler in the event loop to handle certain events.</p>
-<p>Thread pools will also be used in our event loop to handle many events at one time, which are consisted of many sub-reactors.<br>The main reactor creates some sub-reactors to handle different events and control them.<br>When an event comes, the main reactor will dispatch it into a sub-reactor, and the sub-reactor will work as the main reactor to handle events.<br>After finishing calling all handlers, the sub-reactor will report its state to the main reactor.<br>If the sub-reactor encounters exceptions, it will also report them to the main reactor to decide whether it can recover or just be killed.</p>
-<p>Here is the concise structure picture:<br><img src="/2023/01/28/2-Structure/20230128223336.png">  </p>
-<!--  -->
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://aydentait.github.io/2023/01/28/1-Introduction/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="AydenTait">
-      <meta itemprop="description" content="a blog shares IT experiences">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="AydenTait-blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/01/28/1-Introduction/" class="post-title-link" itemprop="url">1.Introduction</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2023-01-28 19:27:52 / Modified: 21:50:51" itemprop="dateCreated datePublished" datetime="2023-01-28T19:27:52+08:00">2023-01-28</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/webserver/" itemprop="url" rel="index"><span itemprop="name">webserver</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>This series will record steps about how to write a web server like Java Netty providing basic network service.</p>
-<p>A modern network web server usually uses event-driven models to handle a variety of network connections, which is proven to be one of the most efficient and fastest ways.</p>
-<p>Among all web servers, I recommend <a target="_blank" rel="noopener" href="https://github.com/chenshuo/muduo">muduo</a> to read and comprehend, because it has a few codes but implements most web server features. It also uses event-drive models.</p>
-<h1 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h1><p>moduo is a c++ library, so it’s advisable that you should be familiar with the c++ programming language.<br>If you don’t handle it, I recommend the following three resources for you:</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://www.amazon.com/Primer-5th-Stanley-B-Lippman/dp/0321714113">c++ primer</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.amazon.com/C-Programming-Language-4th/dp/0321563840">the c++ programming language</a></li>
-<li><a target="_blank" rel="noopener" href="http://cppreference.com/">c++ reference</a></li>
-</ul>
-<p>c++ is not easy to study compared with other programming languages like python or javascript.<br>If you just decide to learn, it may take you more than two months to comprehend.</p>
-<p>In this series, we will use modern c++(c++11) to build the web server.<br>Modern c++ provides many useful features to help us control complicated developments, like share_ptr or std::move.<br>We will use these features to better control memory and speed up the web server’s reaction.</p>
-<p>Here are some modern c++ resources:</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/changkun/modern-cpp-tutorial">Modern C++ Tutorial</a></li>
-<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/cpp/cpp/welcome-back-to-cpp-modern-cpp?view=msvc-170">Welcome back to C++ - Modern C++</a></li>
-</ul>
-<h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><p>Linux is the most popular computer operating system all over the world.<br>It offers io-multiplexing and socket programming, which are powerful tools for us to write network programming code.</p>
-<p>Because our web server will use <code>epoll</code>, which is only supported by Linux,  our web server will only support the Linux operating system.</p>
-<p>I will only recommend you read the Linux manual pages when you get problems because it’s clear to read and easy to get wanted answers.<br>You just need to type <code>man something</code> then you can read it.</p>
-<p>If you use other systems like mac os or windows, you can use <a target="_blank" rel="noopener" href="https://www.docker.com/">docker</a> to have a Linux system.</p>
-<h1 id="Network"><a href="#Network" class="headerlink" title="Network"></a>Network</h1><p>Our web server will concentrate on tcp connections, which are the most popular network connection types.<br>For example, when you click an ip address like <code>www.google.com</code>, your browser will use the http protocol to send a http request, which is based on tcp protocol.</p>
-<p>Here are some network resources:</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://www.amazon.com/Computer-Networking-Top-Down-Approach-7th/dp/0133594149">Computer Networking: A Top-Down Approach</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
   
 
 

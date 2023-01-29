@@ -148,6 +148,93 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://aydentait.github.io/2023/01/29/5-Log/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="AydenTait">
+      <meta itemprop="description" content="a blog shares IT experiences">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AydenTait-blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/01/29/5-Log/" class="post-title-link" itemprop="url">5. Log</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2023-01-29 12:14:42 / Modified: 12:48:13" itemprop="dateCreated datePublished" datetime="2023-01-29T12:14:42+08:00">2023-01-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/webserver/" itemprop="url" rel="index"><span itemprop="name">webserver</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>The log is a tool to record run-time states. When the system is crashed, we can use logs to figure out crash points and fix it.<br>So we should put more attention to logs.</p>
+<h1 id="Log-Level"><a href="#Log-Level" class="headerlink" title="Log Level"></a>Log Level</h1><p>Usually, logs have four levels, they are</p>
+<ul>
+<li>DEBUG</li>
+<li>INFO</li>
+<li>FATAL</li>
+<li>ERROR</li>
+</ul>
+<p>Different levels mean different importance. The importance increase from up to down.<br><code>DEBUG</code> is often the least importance. It’s recorded under developing environment and ignored under deploying environment.<br><code>INFO</code> is used to record system events, like a connection is established or closed.<br><code>FATAL</code> and <code>ERROR</code> is used when the system get stock in troubles. When they comes, usually means the system is crashed and can’t recover. We have to download the log files and read them to figure out the crash points.</p>
+<h1 id="Log-Format"><a href="#Log-Format" class="headerlink" title="Log Format"></a>Log Format</h1><p>log formats consist of many system features,like</p>
+<ul>
+<li>recorded time</li>
+<li>code line</li>
+<li>file name</li>
+<li>crashed reason</li>
+</ul>
+<p>You have to balance file sizes and level of detail. The more detail recorded, the more file sizes will take. So we usually select the most important points to record, like time and crashed reason, and split logs by day to compress sizes.</p>
+<h1 id="Simple-Log"><a href="#Simple-Log" class="headerlink" title="Simple Log"></a>Simple Log</h1><p>We will write a simple log class to record.<br>Create <code>log.cpp</code> in util folder</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> util</span><br><span class="line"><span class="built_in">touch</span> log.cpp log.h Timestamp.h Timestamp.cpp</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://aydentait.github.io/2023/01/29/4-Test-Framework/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -208,63 +295,6 @@ Here is the completed code:<figure class="highlight cpp"><table><tr><td class="g
 </ol>
 <p>You can use it in <code>main.cpp</code>:</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;tests/test.h&quot;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>** argv)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">addTest</span>(<span class="string">&quot;simpleTest1&quot;</span>,[]&#123;</span><br><span class="line">        <span class="built_in">EXPECT_EQ</span>(<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="built_in">addTest</span>(<span class="string">&quot;simpleTest2&quot;</span>,[]&#123;</span><br><span class="line">        <span class="built_in">EXPECT_EQ</span>(<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="built_in">runAllTest</span>();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://aydentait.github.io/2023/01/28/3-Preparation-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="AydenTait">
-      <meta itemprop="description" content="a blog shares IT experiences">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="AydenTait-blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/01/28/3-Preparation-1/" class="post-title-link" itemprop="url">3.Preparation</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-01-28 22:52:23" itemprop="dateCreated datePublished" datetime="2023-01-28T22:52:23+08:00">2023-01-28</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
       
     </div>
 
